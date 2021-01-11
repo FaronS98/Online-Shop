@@ -3,7 +3,7 @@ import {ICartProductDTO} from './cart_product.interface'
 
 export class CartProduct {
 
-    id: number = 0;
+    productId: number = 0;
     quantity: number = 0;
 
 
@@ -15,8 +15,8 @@ export class CartProduct {
      */
     fromJson(data): CartProduct {
 
-        if (check.assigned(data.id)) {
-            this.id = data.id;
+        if (check.assigned(data.productId)) {
+            this.productId= data.productId;
         }
 
         if (check.assigned(data.quantity)) {
@@ -35,7 +35,7 @@ export class CartProduct {
     toJson() {
         const data: ICartProductDTO = null;
 
-        data.id = this.id;
+        data.productId = this.productId;
         data.quantity = this.quantity;
         
         return data;

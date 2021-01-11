@@ -50,12 +50,23 @@
                         height: 25px;
                         border-radius: 0px;   
                         font-size: 12px;
-                        text-align: center;                
+                        text-align: center;             
                         color: #999;
+                    }
+
+                    input::-webkit-outer-spin-button,
+                    input::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+
+                    input[type=number] {
+                        -moz-appearance: textfield;
                     }
     
                     button{
                         border: 1px solid #999;
+                        cursor: pointer;
                     }
     
                     button:first-of-type{
@@ -64,6 +75,10 @@
     
                     button:last-of-type{
                         border-left: none;
+                    }
+
+                    img{
+                        cursor: pointer;
                     }
     
                 }
@@ -78,6 +93,10 @@
 
         .product:first-of-type{
             padding-bottom: 0;
+        }
+
+        .none{
+            display: none;
         }
         
         .update-product{

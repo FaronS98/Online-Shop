@@ -9,20 +9,25 @@
         </div>
 
     </div>
-    <div class="product">
+    <div *ngFor="let product of products"
+        class="product"
+        [ngClass]="{'none': hide === true}">
 
         <div class="product-images">
-            <img src="{{assetsUrl}}x-img.png" alt="x-img">
-            <img src="{{assetsUrl}}headphones.png" alt="headphones">
+            <img (click)="hideProduct(product.id)" src="{{assetsUrl}}x-img.png" alt="x-img">
+            <img src="{{assetsUrl}}{{product.image}}" alt="{{product.image}}">
         </div>
        
         <div class="product-properties">
-            <p>Example</p>
-            <p>$444</p>
-            <div class="quantity">
-                <button>-</button>
-                <input type="text" value=2>
-                <button>+</button>
+            <p>{{product.name}}</p>
+            <p>${{product.price}}</p>
+            <div 
+                class="quantity">
+                <button (click)="decreaseQuantity(product.id)">-</button>
+                <div *ngFor="let cart of cartProduct">
+                    <input *ngIf="cart.productId === product.id" type="number" value="{{cart.quantity}}">
+                </div>                
+                <button (click)="increaseQuantity(product.id)">+</button>
                 <img src="{{assetsUrl}}edit-img.png" alt="edit-img">
             </div>
         </div>        
