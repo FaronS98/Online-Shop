@@ -25,11 +25,13 @@
                 <h2>Grand total</h2>
                 <p>${{grandTotalPrice}}</p>
             </div>
+
+            <div class="checking-button">
+                <button (click)="sendOrder()">Proceed to checkout</button>
+            </div>
         </div>   
         
-        <div class="checking-button">
-            <button (click)="sendOrder()">Proceed to checkout</button>
-        </div>
+     
         
     </section>
 
