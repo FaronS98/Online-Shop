@@ -2,9 +2,9 @@
     .basket{
         display: flex;
         justify-content: space-between;
-        width:100vw;
-        padding: 15vw 10vw;
-        margin: 0 auto;
+        width:80vw;
+        max-width: 1600px;
+        margin: 15vw auto;
     }
 
     .submit-message{
@@ -21,4 +21,18 @@
             font-weight: bold;
         }        
     }
+
+    @media (max-width: 780px){
+        .basket{
+            margin: 4vw;
+        }
+    }
+
+    @media (max-width: 480px){
+        .basket{
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+   
 }

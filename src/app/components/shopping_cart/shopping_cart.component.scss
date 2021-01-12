@@ -1,14 +1,17 @@
 :host{
 
+    $grey-border: #ddd;
+    $grey-font: #999;
+    
     h1{
         font-size: 21px;
-        margin-bottom: 30px;        
-        color: #999;
+        margin-bottom: 30px;
     }
 
     .shopping-cart{
-        width: 60vw;
-        border: 1px solid #ddd;
+        width: 60vw;  
+        max-width:1280px;      
+        border: 1px solid $grey-border;
         box-shadow:0px 1px 1px #aaa;
 
         .product{
@@ -19,9 +22,9 @@
             width:90%;
             margin: 5% auto 0;
             padding-bottom: 3%;
-            border-bottom: 1px solid #ddd;
-            box-shadow:0px 1px 1px #ddd;             
-            color: #999;           
+            border-bottom: 1px solid $grey-border;
+            box-shadow:0px 1px 1px $grey-border;             
+            color: $grey-font;           
 
             .product-images{
                 display: flex;
@@ -53,7 +56,7 @@
                         border-radius: 0px;   
                         font-size: 12px;
                         text-align: center;             
-                        color: #999;
+                        color: $grey-font;
                     }
 
                     input::-webkit-outer-spin-button,
@@ -67,7 +70,7 @@
                     }
     
                     button{
-                        border: 1px solid #999;
+                        border: 1px solid $grey-font;
                         cursor: pointer;
                     }
     
@@ -112,11 +115,103 @@
             button{
                 margin-right: 2%;
                 padding: 1%;
-                border: 1px solid #999;
+                border: 1px solid $grey-font;
                 border-radius: 0px;
                 background-color: #000;
                 color: #fff;
             }            
         }
     }
+
+    
+    @media (min-width: 1600px) {
+        h1{
+            font-size: 28px;
+            margin-bottom: 45px; 
+        }
+        .shopping-cart{    
+            .product{ 
+                .product-properties{
+                    font-size: 18px;    
+                    .quantity{
+                        height:26px;
+        
+                        button, input, img{            
+                            width: 35px;
+                            height: 35px;  
+                            font-size: 16px;
+                        }        
+                    }
+                }          
+            } 
+        }
+    }
+
+    @media (max-width: 996px) {
+        h1{
+            font-size: 16px;
+            margin-bottom: 20px; 
+        }
+        .shopping-cart{    
+            .product{ 
+                .product-properties{
+                    font-size: 10px; 
+                    p{
+                        width: 30%;
+                    }   
+                    .quantity{
+                        height:14px;
+        
+                        button, input, img{            
+                            width: 15px;
+                            height: 15px;  
+                            font-size: 10px;
+                        }        
+                    }
+                }          
+            } 
+        }
+    }
+
+    @media (max-width: 620px) {
+        h1{
+            font-size: 12px;
+            margin-bottom: 8px; 
+        }
+        .shopping-cart{    
+            .product{ 
+                flex-direction: column;
+                justify-content: center;
+                .product-images{
+                    transform: translate(-50%,0);
+                }
+                .product-properties{
+                    margin-top: 10px;
+                    padding: 0;
+                    font-size: 10px
+                }  
+                .quantity{
+                    width: 40%;
+                }        
+            }
+
+            .product-head{
+                display: none;
+            }
+
+            .update-product{
+                button{
+                    font-size: 10px;
+                }            
+            }
+        }
+    }
+
+    @media (max-width: 480px){
+        .shopping-cart{
+            width: 92vw;
+        }
+    }
+    
 }
+
