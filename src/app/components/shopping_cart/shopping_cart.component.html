@@ -28,13 +28,13 @@
                     <input *ngIf="cart.productId === product.id" type="number" value="{{cart.quantity}}">
                 </div>                
                 <button (click)="increaseQuantity(product.id)">+</button>
-                <img src="{{assetsUrl}}edit-img.png" alt="edit-img">
+                <img (click)="updateShoppingCart()" src="{{assetsUrl}}edit-img.png" alt="edit-img">
             </div>
         </div>        
     </div>
 
     <div class="update-product">
-        <button>Update Shopping Cart</button>
+        <button (click)="updateShoppingCart()">Update Shopping Cart</button>
     </div>
     
 </section>

@@ -1,0 +1,36 @@
+<section class="list">
+
+    <div class="checking-button">
+        <button>Proceed to checkout</button>
+    </div>
+    
+    <div class="headline-pricelist">
+        <p>Shipping</p>
+        <p>${{shippingPrice}}</p>
+    </div>
+    
+    <section class="cart-total">
+        
+        <div class="headline-pricelist">
+            <p>Cart total</p>
+        </div>
+    
+        <div class="price-list">
+            <div class="price">
+                <h2>Subtotal</h2>
+                <p>${{subtotalPrice}}</p>
+            </div>
+        
+            <div class="price">
+                <h2>Grand total</h2>
+                <p>${{grandTotalPrice}}</p>
+            </div>
+        </div>   
+        
+        <div class="checking-button">
+            <button (click)="sendOrder()">Proceed to checkout</button>
+        </div>
+        
+    </section>
+
+</section>

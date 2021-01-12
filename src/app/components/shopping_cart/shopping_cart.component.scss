@@ -7,13 +7,14 @@
     }
 
     .shopping-cart{
-        width: 800px;
+        width: 60vw;
         border: 1px solid #ddd;
         box-shadow:0px 1px 1px #aaa;
 
         .product{
             display: flex;
             justify-content: flex-end;
+            flex-wrap: wrap;
             align-items: center;
             width:90%;
             margin: 5% auto 0;
@@ -31,6 +32,7 @@
             .product-properties{
                 display: flex;
                 justify-content: space-between;
+                flex-wrap: wrap;
                 width: 70%;
                 padding: 0 5% 0 15%;
                 font-size: 14px;
@@ -41,7 +43,7 @@
 
                 .quantity{                
                     display: flex; 
-                    width: 35%;
+                    width: 30%;
                     height:20px;
     
                     button, input, img{  
@@ -88,6 +90,9 @@
                 padding-bottom: 3%;
                 font-weight: bold;
                 color: #555;
+                p:nth-of-type(3){
+                    width: 30%;
+                }
             }            
         }  
 
@@ -111,8 +116,7 @@
                 border-radius: 0px;
                 background-color: #000;
                 color: #fff;
-            }
-            
+            }            
         }
     }
 }

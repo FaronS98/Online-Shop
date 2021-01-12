@@ -1,0 +1,24 @@
+:host{
+    .basket{
+        display: flex;
+        justify-content: space-between;
+        width:100vw;
+        padding: 15vw 10vw;
+        margin: 0 auto;
+    }
+
+    .submit-message{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        p{
+            font-size: 16px;
+            line-height: 20px;
+            color: #00FF00;
+            background-color: rgba(#00FF00, 0.4);
+            padding: 10px 50px;
+            font-weight: bold;
+        }        
+    }
+}

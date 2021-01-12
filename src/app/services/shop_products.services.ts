@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {CartProduct} from '../models/cart_product';
 import {ICartProductDTO} from '../models/cart_product.interface';
@@ -13,6 +13,8 @@ import {IProductItemDTO} from '../models/product_item.interface';
 export class ShopProductsService {
 
   mainUrl: string = '../assets/data'; 
+  private subjectOrder= new Subject<any>();
+  private subjectPrice= new Subject<any>();
 
   /**
    * @constructor
@@ -43,4 +45,24 @@ export class ShopProductsService {
               }))
           );
   }
+
+ 
+  sendClickEventSendOrder(){
+    this.subjectOrder.next();
+  }
+
+  getClickEventSendOrder():Observable<any>{
+    return this.subjectOrder.asObservable();
+  }
+
+ 
+  sendClickEventCalculatePrice(){
+    this.subjectPrice.next();
+  }
+
+  
+  getClickEventCalculatePrice():Observable<any>{
+    return this.subjectPrice.asObservable();
+  }
+
 }

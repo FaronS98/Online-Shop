@@ -1,0 +1,14 @@
+<section *ngIf="sendOrder === false" class="basket">
+    <app-shopping-cart
+        [cartProduct]="cartProduct"
+        [products]='products'
+    ></app-shopping-cart>
+    <app-cart-pricelist
+        [cartProduct]="cartProduct"
+        [products]='products'
+    ></app-cart-pricelist>
+</section>
+
+<div *ngIf="sendOrder === true" class="submit-message">
+    <p>Zgłoszenie zostało wysłane</p>
+</div>

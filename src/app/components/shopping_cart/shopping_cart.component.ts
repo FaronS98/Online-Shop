@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ShopProductsService } from '../../services/shop_products.services';
 import { CartProduct } from '../../models/cart_product';
 import { ProductItem } from '../../models/product_item';
@@ -8,12 +8,11 @@ import { ProductItem } from '../../models/product_item';
   templateUrl: './shopping_cart.component.html',
   styleUrls: ['./shopping_cart.component.scss']
 })
-export class ShoppingCartComponent implements OnInit {
+export class ShoppingCartComponent {
 
-
+  @Input() cartProduct: CartProduct[] = [];
+  @Input() products: ProductItem[] = [];
   assetsUrl: string = "../../assets/images/";
-  products: ProductItem[] = [];
-  cartProduct: CartProduct[] = [];
   productQuantity: number = null;
   hide: Boolean = false;
 
@@ -21,42 +20,20 @@ export class ShoppingCartComponent implements OnInit {
    * @constructor
    */
   constructor(
-    private tailorCollectionService: ShopProductsService,
+    private shopProductsService: ShopProductsService,
   ) {
 
   }
 
-  ngOnInit(): void {
-    this.getProducts();
-    this.getCartProduct();
-  }
-
-  
-  /**
-   * Get products
-   */
-  getProducts(): void {
-    this.tailorCollectionService.getProductItem().subscribe(products => {
-      this.products = products; 
-    });
-  }
-
-  /**
-   * Get cart`s product
-   */
-  getCartProduct(): void {
-    this.tailorCollectionService.getCartProducts().subscribe(carts => {
-      this.cartProduct = carts; 
-    });
-  }
-
   /**
    * Increase product`s quantity
+   * @param {number} productId
    */
   increaseQuantity(productId: number): void{
     for(let cart of this.cartProduct){
       if(cart.productId === productId){
         cart.quantity++;
+        console.log(cart.quantity)
       }
     }
   }
@@ -64,6 +41,7 @@ export class ShoppingCartComponent implements OnInit {
 
   /**
    * Decrease product`s quantity
+   * @param {number} productId
    */
   decreaseQuantity(productId: number): void{
     for(let cart of this.cartProduct){
@@ -75,14 +53,23 @@ export class ShoppingCartComponent implements OnInit {
 
   /**
    * Hide product and reset product`s quantity
+   * @param {number} productId
    */
   hideProduct(productId: number){
     for(let cart of this.cartProduct){
       if(cart.productId === productId){   
         cart.quantity = 0;
-        this.hide = true;
+        this.hide = true;   
+        this.shopProductsService.sendClickEventCalculatePrice();     
       }
     }
+  }
+
+  /**
+   * Update shopping cart
+   */
+  updateShoppingCart(){
+    this.shopProductsService.sendClickEventCalculatePrice();
   }
 
 }
